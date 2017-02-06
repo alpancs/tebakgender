@@ -1,0 +1,25 @@
+{
+  "name": "tebakgender",
+  "version": "1.0.0",
+  "description": "Memprediksi gender berdasarkan nama",
+  "main": "tebakgender.js",
+  "scripts": {
+    "test": "for f in test/*; do echo \"$f\"; node \"$f\" || exit 1; echo; done; echo Passed; exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alpancs/tebakgender.git"
+  },
+  "keywords": [
+    "tebakgender",
+    "tebak",
+    "gender",
+    "nama"
+  ],
+  "author": "Alfan Nur Fauzan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alpancs/tebakgender/issues"
+  },
+  "homepage": "https://github.com/alpancs/tebakgender#readme"
+}
