@@ -1,5 +1,4 @@
-var tebakgender = (nama) => {
-  return 'M'
-}
+var sanitize = require('./lib/sanitize.js')
+var estimation = require('./lib/estimation.js')
 
-module.exports = tebakgender
+module.exports = name => estimation(sanitize(name))
