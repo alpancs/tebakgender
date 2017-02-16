@@ -1,4 +1,4 @@
-var sanitize = require('./lib/sanitize.js')
-var estimation = require('./lib/estimation.js')
+var sanitize = require('./lib/sanitize')
+var estimation = require('./lib/estimation')
 
 module.exports = name => estimation(sanitize(name))
