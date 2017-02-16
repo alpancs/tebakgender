@@ -1,7 +1,7 @@
 {
   "name": "tebakgender",
-  "version": "1.0.1",
-  "description": "Memprediksi gender berdasarkan nama",
+  "version": "1.0.2",
+  "description": "Memprediksi gender berdasarkan nama.",
   "main": "tebakgender.js",
   "scripts": {
     "test": "for f in test/*; do echo \"$f\"; node \"$f\" || exit 1; echo; done; echo Passed; exit 0"
