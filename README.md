@@ -1,7 +1,18 @@
 # Tebakgender
 *Memprediksi gender berdasarkan nama.*
 
-# Example
+## API
+`estimation = tebakgender(name[, sanitized])`
+- Parameter
+  - *string* `name`: name to be predicted
+  - *boolean* `sanitized`: is the name has been sanitized?
+- Return Object
+  - `gender`
+  - `confidence`
+  - `probability`
+  - `logProbability`
+
+## Example
 Script:
 ```
 var tebakgender = require('tebakgender')
