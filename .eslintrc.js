@@ -24,9 +24,21 @@ module.exports = {
       'error',
       'never',
     ],
-    'no-console': [
+    'no-unused-vars': [
       'error',
-      {'allow': ['log']},
+      {
+        'vars': 'all',
+        'argsIgnorePattern': '^_',
+      },
     ],
+    'max-len': [
+      'error',
+      {
+        'ignoreUrls': true,
+        'ignoreStrings': true,
+        'ignoreTemplateLiterals': true,
+        'ignoreRegExpLiterals': true,
+      },
+    ]
   },
 }
