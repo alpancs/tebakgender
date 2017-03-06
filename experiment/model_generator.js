@@ -1,7 +1,7 @@
 'use strict'
 
-let fs = require('fs')
-let feature = require('../lib/feature')
+const fs = require('fs')
+const feature = require('../lib/feature')
 let students = require('../corpus/data_siswa.json')
 
 let frequency = {L: {}, P: {}, sum: {}}
