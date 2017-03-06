@@ -1,13 +1,19 @@
 'use strict'
 
 const fs = require('fs')
+const months = ['JANUARI', 'FEBRUARI', 'MARET', 'APRIL', 'MEI', 'JUNI',
+  'JULI', 'AGUSTUS', 'SEPTEMBER', 'OKTOBER', 'NOPEMBER', 'DESEMBER']
 
 const readFilePromise = (fileName) =>
-  new Promise((resolve, reject) => fs.readFile(fileName, 'utf8', (err, data) => err ? reject(err) : resolve(data)))
+  new Promise((resolve, reject) =>
+    fs.readFile(fileName, 'utf8', (err, data) =>
+      err ? reject(err) : resolve(data)
+    )
+  )
 
 readFilePromise('corpus/Daftar Kota dan Kabupaten di Pulau Jawa.txt')
-.then(citiesRaw => {
-  let cities = citiesRaw.split('\n').map(city =>
+.then((citiesRaw) => {
+  let cities = citiesRaw.split('\n').map((city) =>
     city.replace(/^(Kabupaten|Kota)( Administrasi)? /, '').toUpperCase()
   )
   let setOfCities = new Set(cities)
@@ -15,25 +21,30 @@ readFilePromise('corpus/Daftar Kota dan Kabupaten di Pulau Jawa.txt')
   setOfCities.delete('')
   return setOfCities
 })
-.then(setOfCities =>
+.then((setOfCities) =>
   readFilePromise('corpus/data-siswa.csv')
-  .then(studentsRaw =>
+  .then((studentsRaw) =>
     studentsRaw.trim().split('\n')
-    .map(student => {
+    .map((student) => {
       let [nisn, name, gender, placeOfBirth, dateOfBirth] = student.split(',')
       name = name.trim()
-      return {nisn: nisn, name: name, gender: gender, placeOfBirth: placeOfBirth, dateOfBirth: dateOfBirth}
+      return {nisn, name, gender, placeOfBirth, dateOfBirth}
     })
-    .filter(student => setOfCities.has(student.placeOfBirth) && !student.name.match(/(\b\w\b )(\b\w\b )(\b\w\b )+/))
-    .map(student => {
+    .filter((student) =>
+      setOfCities.has(student.placeOfBirth)
+      && !student.name.match(/(\b\w\b )(\b\w\b )(\b\w\b )+/)
+    ).map((student) => {
       let [date, month, year] = student.dateOfBirth.split(' ')
       date = parseInt(date)
-      month = ['JANUARI', 'FEBRUARI', 'MARET', 'APRIL', 'MEI', 'JUNI', 'JULI', 'AGUSTUS', 'SEPTEMBER', 'OKTOBER', 'NOPEMBER', 'DESEMBER'].indexOf(month)
+      month = months.indexOf(month)
       year = parseInt(year)
       student.dateOfBirth = new Date(year, month, date)
       return student
     })
   )
 )
-.then(students => fs.writeFile('corpus/data_siswa.json', JSON.stringify(students, null, 2), err => err ? console.log(err) : null))
-.catch(console.error)
+.then((students) =>
+  fs.writeFile('corpus/data_siswa.json', JSON.stringify(students, null, 2),
+    (err) => err ? console.log(err) : null
+  )
+).catch(console.log)

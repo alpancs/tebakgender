@@ -7,7 +7,7 @@ let names = [
   ['Ayu Deswanti Rio Dingin', 'P'],
   ['Susilo Bambang Yudhoyono', 'L'],
   ['Risma', 'P'],
-  ['Karjiman', 'L']
+  ['Karjiman', 'L'],
 ]
 
 names.forEach(([name, gender]) => {
