@@ -3,7 +3,7 @@
 const fs = require('fs')
 const estimation = require('../lib/estimation')
 const feature = require('../lib/feature')
-const students = require('../corpus/data-siswa.json')
+const students = require('../corpus/data-siswa')
 
 const K = 10
 

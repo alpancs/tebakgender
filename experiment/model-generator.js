@@ -2,7 +2,7 @@
 
 const fs = require('fs')
 const feature = require('../lib/feature')
-let students = require('../corpus/data-siswa.json')
+let students = require('../corpus/data-siswa')
 
 let frequency = {L: {}, P: {}, sum: {}}
 
