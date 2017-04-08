@@ -1,5 +1,3 @@
-'use strict'
-
 const fs = require('fs')
 const months = ['JANUARI', 'FEBRUARI', 'MARET', 'APRIL', 'MEI', 'JUNI',
   'JULI', 'AGUSTUS', 'SEPTEMBER', 'OKTOBER', 'NOPEMBER', 'DESEMBER']
@@ -36,9 +34,9 @@ readFilePromise('corpus/Daftar Kota dan Kabupaten di Pulau Jawa.txt')
     ).map((student) => {
       let [date, month, year] = student.dateOfBirth.split(' ')
       date = parseInt(date)
-      month = months.indexOf(month)
+      month = months.indexOf(month) + 1
       year = parseInt(year)
-      student.dateOfBirth = new Date(year, month, date)
+      student.dateOfBirth = `${year}-${twoDigits(month)}-${twoDigits(date)}`
       return student
     })
   )
@@ -48,3 +46,5 @@ readFilePromise('corpus/Daftar Kota dan Kabupaten di Pulau Jawa.txt')
     (err) => err ? console.log(err) : null
   )
 ).catch(console.log)
+
+let twoDigits = (number) => number < 10 ? '0' + number : number.toString()
