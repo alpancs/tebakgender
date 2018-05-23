@@ -1,6 +1,6 @@
 {
   "name": "tebakgender",
-  "version": "1.3.2",
+  "version": "1.4.0",
   "description": "Memprediksi gender berdasarkan nama.",
   "main": "tebakgender.js",
   "scripts": {
