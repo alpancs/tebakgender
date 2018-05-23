@@ -1,5 +1,6 @@
 # TebakGender
-*Memprediksi gender berdasarkan nama.*
+Predicting gender (L: male, P: female) based on name.
+It works very well for common Javanese names.
 
 ## API
 `estimation = tebakgender(name[, sanitized])`
