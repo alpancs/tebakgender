@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/alpancs/tebakgender#readme",
   "devDependencies": {
-    "eslint": "^3.19.0",
+    "eslint": "^4.18.2",
     "eslint-config-google": "^0.7.1"
   }
 }
